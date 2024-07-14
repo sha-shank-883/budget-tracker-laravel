@@ -63,3 +63,19 @@ width: 20%;
 .shadow-sm {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
 }
+
+.pd-20{
+    padding: 20px;
+}
+.pd-30{
+    padding: 30px;
+}
+.card-body{
+    padding: 20px 20px 0px 20px;
+}
+.card{
+    padding: 30px;
+}
+#navbarDropdown{
+        text-transform: uppercase;
+}

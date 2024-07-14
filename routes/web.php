@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,20 +16,14 @@ use App\Http\Controllers\TransactionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/dashboard', [TransactionController::class, 'dashboard'])->name('dashboard');
-Route::resource('transactions', TransactionController::class)->middleware('auth');
-Route::resource('transactions', TransactionController::class);
-Route::resource('categories', CategoryController::class);
-Route::get('/reports/monthly', [ReportController::class, 'monthly'])->name('reports.monthly');
-
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::resource('transactions', TransactionController::class)->middleware('auth');
+Route::resource('categories', CategoryController::class)->middleware('auth');
+Route::get('/reports/monthly', [ReportController::class, 'monthly'])->name('reports.monthly')->middleware('auth');
 
 require __DIR__.'/auth.php';

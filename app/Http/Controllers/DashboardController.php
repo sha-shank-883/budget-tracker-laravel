@@ -3,15 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index() {
-        $totalIncome = auth()->user()->transactions()->where('type', 'income')->sum('amount');
-        $totalExpense = auth()->user()->transactions()->where('type', 'expense')->sum('amount');
-        $balance = $totalIncome - $totalExpense;
+   public function index()
+{
+    $user_id = Auth::id();
 
-        return view('dashboard.index', compact('totalIncome', 'totalExpense', 'balance'));
-    }
+    $totalIncome = Transaction::where('user_id', $user_id)
+        ->where('type', 'income')
+        ->sum('amount');
+
+    $totalExpenses = Transaction::where('user_id', $user_id)
+        ->where('type', 'expense')
+        ->sum('amount');
+
+    $balance = $totalIncome - $totalExpenses;
+
+    // dd($totalIncome, $totalExpenses, $balance);
+
+    return view('dashboard', compact('totalIncome', 'totalExpenses', 'balance'));
 }
 
+}
