@@ -1,0 +1,65 @@
+/* public/css/custom.css */
+.card-header {
+    font-size: 1.2rem;
+}
+
+.card-title {
+    font-size: 2rem;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
+.nav-div{
+        display: flex;
+    justify-content: space-evenly;
+}
+.navbar-nav{
+        display: flex;
+    justify-content: space-evenly;
+}
+#navbarSupportedContent{
+width: 20%;
+}
+.container{
+        padding: 50px;
+}
+/* public/css/custom.css */
+.card-header {
+    font-size: 1.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+.form-group {
+    display: grid;
+    max-width: 35%;
+    padding: 20px 50px;
+}
+
+.btn {
+    margin-right: 10px;
+    background: #000;
+    color: #fff;
+    border: 3px solid #c7c0c0;
+    padding: 10px;
+}
+.ml-50{
+    margin-left: 50px;
+}
+/* .container {
+    max-width: 700px;
+} */
+ .table-bordered,
+.table-bordered th,
+.table-bordered td,
+.table-bordered tr {
+    border: 2px solid black !important;
+    padding: 10px;
+}
+
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
